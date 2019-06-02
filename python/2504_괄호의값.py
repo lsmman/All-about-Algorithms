@@ -31,18 +31,20 @@ for idx in range(leng):
     mul_depth = mul_depth * 3
     stack.push(brk)
   elif brk.__eq__(")"):
-    mul_depth = mul_depth / 2
-    if ( stack.peek() == "("):
-        stack.pop()
+    if input_data[idx-1].__eq__('('):
         total_sum += mul_depth
+    if stack.peek().__eq__("("):
+        mul_depth = mul_depth / 2
+        stack.pop()
     else : 
         impossible = 1
         break
   elif brk.__eq__("]"):
-    mul_depth = mul_depth / 3
-    if ( stack.peek() == "["):
-        stack.pop()
+    if input_data[idx-1].__eq__('['):
         total_sum += mul_depth
+    if stack.peek().__eq__("["):
+        mul_depth = mul_depth / 3
+        stack.pop()
     else : 
         impossible = 1
         break
