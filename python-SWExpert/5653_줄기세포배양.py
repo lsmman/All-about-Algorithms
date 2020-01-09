@@ -11,63 +11,68 @@ from collections import deque
 def spread(cur_info, whole_map, new_cells, limit_x, limit_y):
     x, y, life = cur_info
     inactive, empty = 1, 0
-    for add_x, add_y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+    for add_x, add_y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:  # 4방향
         new_x, new_y = x + add_x, y + add_y
-        if (
+        if (  # 범위 내에서
             new_x >= 0
             and new_x < limit_x
             and new_y >= 0
             and new_y < limit_y
             and (
-                whole_map[new_x][new_y][0] == empty
-                or ((new_x, new_y) in new_cells and whole_map[new_x][new_y][2] < life)
+                whole_map[new_x][new_y][0] == empty  # 비어있었거나
+                or (
+                    (new_x, new_y) in new_cells and whole_map[new_x][new_y][2] < life
+                )  # 새로운 셀 중에서 life 더 작은 거
             )
         ):
-            whole_map[new_x][new_y] = [inactive, life, life]
-            new_cells.append((new_x, new_y))
+            whole_map[new_x][new_y] = [inactive, life, life]  # 생명을 부여합니다.
+            new_cells.append((new_x, new_y))  # new cell 관리
     return
 
 
 def solution(N, M, K, matrix):
     answer = t = 0
-    queue = deque()
+    queue = deque()  # work queue
     inactive, active, dead, empty = (1, 2, -1, 0)  # 비활성, 활성, 죽음, 원래부터 없음
-    status, remain, _life = (0, 1, 2)
-    spread_leng = 150
+    status, remain, _life = (0, 1, 2)  # node structure in map
+    spread_leng = 150  # 300초동안 최대 150 = 300 // 2 늘어날 수 있음
     limit_x, limit_y = N + spread_leng * 2, M + spread_leng * 2
-    whole_map = [[[empty, 0, 0] for _ in range(limit_y)] for __ in range(limit_x)]
     # [status, remain, life] : 현재 상태, 상태의 남은 생명력, 생명력 수치
+    whole_map = [[[empty, 0, 0] for _ in range(limit_y)] for __ in range(limit_x)]
 
     for i in range(N):
         for j in range(M):
-            if matrix[i][j]:  # 생명력이 있으면
+            if matrix[i][j]:  # 살아있는 셀 init
                 whole_map[spread_leng + i][spread_leng + j] = [inactive, matrix[i][j], matrix[i][j]]
-                queue.append((spread_leng + i, spread_leng + j))
+                queue.append((spread_leng + i, spread_leng + j))  # 0, 0 -> 150, 150
     while queue and t < K:
         new_cells = []
-        for _ in range(len(queue)):
+        for _ in range(len(queue)):  # 루프 전에 가지고 있는 queue element까지만 루프
             cur_x, cur_y = queue.popleft()
             cur_status, cur_remain, cur_life = whole_map[cur_x][cur_y]
-            if cur_status == inactive:
-                if cur_remain == 1:
+
+            if cur_status == inactive:  # inactive case
+                if cur_remain == 1:  # inactive 수명이 다하면
                     whole_map[cur_x][cur_y][status] = active
                     whole_map[cur_x][cur_y][remain] = cur_life
                 else:
                     whole_map[cur_x][cur_y][remain] -= 1
-            elif cur_status == active:
+
+            elif cur_status == active:  # active case
                 spread((cur_x, cur_y, cur_life), whole_map, new_cells, limit_x, limit_y)
-                if cur_remain == 1:
+                if cur_remain == 1:  # active 수명이 다하면
                     whole_map[cur_x][cur_y][status] = dead
                 else:
                     whole_map[cur_x][cur_y][remain] -= 1
-            if cur_status >= 1:
+
+            if cur_status >= 1:  # only two cases : inactive and active
                 queue.append((cur_x, cur_y))
-        queue.extend(new_cells)
+        queue.extend(new_cells)  # put new cells at back of queue
         t += 1
 
     for i in range(limit_x):
         for j in range(limit_y):
-            if whole_map[i][j][status] >= 1:
+            if whole_map[i][j][status] >= 1:  # only two cases : inactive and active
                 answer += 1
     return answer
 
