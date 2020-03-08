@@ -1,18 +1,20 @@
 def element_wise_add(first, second):
     return [x+y for x, y in zip(first, second)]
 
-def fib_counter(n, fib):
+def fib_counter(n):
+    fib = [[0,0] for _ in range(41)]
     fib[0] = [1,0]
     fib[1] = [0,1]
     for num in range(2, n+1):
         fib[num] = element_wise_add(fib[num-1], fib[num-2])
-
+    return fib
+    
+#################################    
 num_list = []
 for _ in range(int(input())):
     num_list.append(int(input()))
 
-fib = [[0,0] for _ in range(41)]
-fib_counter(40)
+fib = fib_counter(40)
 for n in num_list:
     print(fib[n])
     
