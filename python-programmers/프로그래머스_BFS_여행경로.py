@@ -1,3 +1,5 @@
+# 0.63ms, 10.3 MB
+
 from collections import defaultdict
 from copy import deepcopy
 
