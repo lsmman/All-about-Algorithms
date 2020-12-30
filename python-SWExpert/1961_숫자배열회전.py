@@ -5,17 +5,13 @@ def solution(n, matrix):
     # 90 degree : x, y -> y, n-x-1
     # 180 degree : x, y ->-> n-x-1, n-y-1
     # 270 degree : x, y ->->-> n-y-1, x
-    x = y = 0
-    y = n-x-1 = 0
-    1, 2
-    3, 4
-    
-    0, 0
-    n-x-1, 
-    [0, 1]
-    
-    3, 1
-    4, 2
+    for x in range(n):
+        a, b, c = "", "", ""
+        for y in range(n):
+            a += str(matrix[n - y - 1][x])
+            b += str(matrix[n - x - 1][n - y - 1])
+            c += str(matrix[y][n - x - 1])
+        print(a, b, c)
     return
 
 
