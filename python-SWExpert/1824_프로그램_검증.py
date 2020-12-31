@@ -17,7 +17,7 @@ def solution(r, c, commend):
     while queue:
         cur = queue.popleft()
         cur_commend = commend[cur["y"]][cur["x"]]
-        print(cur, cur_commend, len(queue))
+        # print(cur, cur_commend, len(queue))
         if cur_commend == "@":
             return True
         elif visit[cur["y"]][cur["x"]][cur["mem"]][cur["di"]]:
@@ -30,6 +30,7 @@ def solution(r, c, commend):
                 cur_t = deepcopy(cur)
                 cur_t["x"] = (cur_t["x"] + direct[di][0] + c) % c
                 cur_t["y"] = (cur_t["y"] + direct[di][1] + r) % r
+                cur_t["di"] = di
                 queue.append(cur_t)
             continue
         elif cur_commend in ["<", ">", "^", "v"]:
@@ -58,7 +59,6 @@ def main():
     sys.stdin = open("python-SWExpert/input.txt")
 
     T = int(input())
-
     for test_case in range(1, T + 1):
         r, c = map(int, input().split())
         commend = []
@@ -68,12 +68,12 @@ def main():
         print("#{} {}".format(test_case, ans))
 
 
-# def main_test():
+# def test():
 #     whywhy = [36, 46, 47, 50, 52, 53, 54, 55, 58, 62, 69]
 #     whywhy = [3, 28, 30, 31, 45, 50, 52, 62, 69]
 #     whywhy = [69]
 #     whywhy = [49, 57, 62]
-#     sys.stdin = open("python-SWExpert/output.txt")
+#     sys.stdin = open("output.txt")
 #     T = int(input())
 #     answers = [""]
 #     for test_case in range(1, T + 1):
@@ -87,18 +87,17 @@ def main():
 #         commend = []
 #         for _ in range(r):
 #             commend.append(list(input()))
-#         if test_case in whywhy:
-#             print(r, c)
-#             for asdf in commend:
-#                 print(asdf)
-#             ans = "YES" if solution(r, c, commend) else "NO"
-#             print("#{} {} {}".format(test_case, ans, ans == answers[test_case]))
-#             if not ans == answers[test_case]:
-#                 check.append(test_case)
-#             break
+#         # if test_case in whywhy:
+#         #     print(r, c)
+#         #     for asdf in commend:
+#         #         print(asdf)
+#         ans = "YES" if solution(r, c, commend) else "NO"
+#         print("#{} {} {}".format(test_case, ans, ans == answers[test_case]))
+#         if not ans == answers[test_case]:
+#             check.append(test_case)
 #     print(check)
 
 
 if __name__ == "__main__":
-    # main_test()
+    # test()
     main()
