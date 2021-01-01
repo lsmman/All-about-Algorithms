@@ -1,4 +1,4 @@
 # gitignore
 
 .vscode
-./Python-SWExpert/*.txt
+./python-SWExpert/*.txt
