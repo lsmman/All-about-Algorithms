@@ -2,3 +2,4 @@
 
 .vscode
 ./python-SWExpert/*.txt
+python-SWExpert/input.txt
