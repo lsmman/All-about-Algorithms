@@ -1,5 +1,9 @@
 # gitignore
 
 .vscode
-./python-SWExpert/*.txt
+*.jpg
+
+*.txt
 python-SWExpert/input.txt
+
+
