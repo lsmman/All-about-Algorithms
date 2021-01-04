@@ -85,5 +85,7 @@
 * [Matrix Rotation](/Miscellaneous/rotate_a_matrix_by_90_degree.py)
 * Handling Recursion Limit
 
+### MyAPI
+* [Create_n_arr-easily_python](/MyAPI/create_n_arr.py)
 ### Reference
 * (https://github.com/ndb796/Python-Competitive-Programming-Team-Notes)
