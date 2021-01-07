@@ -22,7 +22,7 @@ def main():
     sys.stdin = open("python-SWExpert/input.txt")
 
     T = 10
-    for test_case in range(1, T + 1):
+    for _ in range(1, T + 1):
         t = int(input())
         matrix = []
         for _ in range(100):

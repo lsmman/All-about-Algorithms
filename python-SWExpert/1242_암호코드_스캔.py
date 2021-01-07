@@ -43,7 +43,7 @@ def main():
     T = int(input())
     for test_case in range(1, T + 1):
         n, m = map(int, input().split())
-        lines = list(set([input() for _ in range(n)]))
+        lines = list(set([input()[:m] for _ in range(n)]))
         valid_codes = set()
         for line in lines:
             if len(set(line)) == 1:
@@ -99,5 +99,6 @@ if __name__ == "__main__":
 #19 7736
 #20 6604
 
+# 16.5515 => 2.5
 Thanks to 'https://pg-wonie.tistory.com/27?category=830857'
 """

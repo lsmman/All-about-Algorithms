@@ -136,7 +136,7 @@ def main():
 
     T = int(input())
     for test_case in range(1, T + 1):
-        n, m = map(int, input().split())
+        n, m = map(int, input()[:m].split())
         lines = set()
         for _ in range(n):
             lines.add(str(input()))
