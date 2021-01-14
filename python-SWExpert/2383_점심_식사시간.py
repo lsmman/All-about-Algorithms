@@ -8,6 +8,7 @@ import sys
 
 
 def solution(N, room):
+    # person과 stair 만들기
     persons, stairs = [], []
     for x in range(N):
         for y in range(N):
@@ -16,37 +17,39 @@ def solution(N, room):
             elif room[x][y] == 1:
                 persons.append((x, y))
             else:
-                stairs.append((x, y))
-    stairs.sort(key=lambda z: room[z[0]][z[1]])
+                stairs.append((x, y, room[x][y]))
+    stairs.sort(key=lambda z: z[2])
 
-    dist = [[0 for _ in range(len(persons))] for _ in range(len(stairs))]
-    for pi, (px, py) in enumerate(persons):
-        for si, (sx, sy) in enumerate(stairs):
-            dist[si][pi] = abs(px - sx) + abs(py - sy)
+    # stair 0번, 1번과 person까지의 거리 계산
+    dist_0, dist_1 = [], []
+    for px, py in persons:
+        dist_0.append(abs(px - stairs[0][0]) + abs(py - stairs[0][1]))
+        dist_1.append(abs(px - stairs[1][0]) + abs(py - stairs[1][1]))
 
-    turn = 1
-    persons_count, num_of_person = 0, len(persons)
-    time_to_down = [room[sx][sy] for sx, sy in stairs]
-    stairs_queue = [list() for _ in range(len(stairs))]
-    moved = [False] * num_of_person
+    min_time = 10000
+    for i in range(1 << len(persons)):
+        # 0번 stair를 이용하는 경우와 1번 stair를 이용하는 경우 2^persons개
+        p2s_0, p2s_1 = [], []
+        for j in range(len(persons)):
+            if i & (1 << j):
+                p2s_0.append(dist_0[j])
+            else:
+                p2s_1.append(dist_1[j])
+        # 각각 stair별로 계산하므로 계산하기 편하게 sort
+        p2s_0.sort()
+        p2s_1.sort()
 
-    while persons_count < num_of_person:
-        for si, dist_info in enumerate(dist):
-            while stairs_queue[si] and stairs_queue[si][0] <= turn:
-                stairs_queue[si].pop(0)
-            for pi, d in enumerate(dist_info):
-                if len(stairs_queue[si]) == 3:
-                    break
-                if not moved[pi] and d < turn:
-                    stairs_queue[si].append(turn + time_to_down[si])
-                    moved[pi] = True
-                    persons_count += 1
-        turn += 1
-
-    for turns in stairs_queue:
-        for t in turns:
-            turn = max(turn, t)
-    return turn
+        # 시간 계산
+        stair_0, stair_1 = [0] * 3, [0] * 3
+        for i, d_0 in enumerate(p2s_0):
+            stair_0[i % 3] = max(d_0 + 1, stair_0[i % 3]) + stairs[0][2]
+        for i, d_1 in enumerate(p2s_1):
+            stair_1[i % 3] = max(d_1 + 1, stair_1[i % 3]) + stairs[1][2]
+        # 가장 오래걸렸던 시간을 총 걸린 시간으로 assign
+        taken_time = max(max(stair_0), max(stair_1))
+        # 모든 경우 중 최소시간 비교 & 대입
+        min_time = min(min_time, taken_time)
+    return min_time
 
 
 def main():
