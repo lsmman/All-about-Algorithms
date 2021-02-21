@@ -14,9 +14,9 @@ import re
 
 def solution(word):
     # 1 & 2
-    word = re.sub("[^a-z\d_\-\.]", "", word.lower())
+    word = re.sub(r"[^a-z\d_\-\.]", "", word.lower())
     # 3
-    word = re.sub("\.+", ".", word)
+    word = re.sub(r"\.+", ".", word)
     # 4
     if word and word[0] == ".":
         word = word[1:]
