@@ -17,7 +17,7 @@ class test_method(unittest.TestCase):
         )
         self.assertEqual(result, 0)
 
-    def 
+
 from itertools import permutations, product
 
 
