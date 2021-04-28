@@ -1,38 +1,44 @@
 #include <iostream>
-#include <array>
-
+#include <algorithm>
+#include <vector>
 using namespace std;
+
+bool cmp(const pair<int, int> &v1, const pair<int, int> &v2)
+{
+    return v1.second > v2.second;
+}
 
 int main()
 {
-    int i, j, d, w;
-    int loop, temp;
-    array<array<int, 2>, 1000> cases;
-    array<int, 1001> score_pane;
-    std::cin >> loop;
-    for (i=0; i < loop; i++) {
-        std::cin >> cases[i][0] >> cases[i][1];
+    int N, d, w, i;
+    int answer(0), sum_v(0);
+    vector<int> work(1001);
+    vector<pair<int, int> > v;
+    vector<std::pair<int, int> >::iterator vit;
+
+    cin >> N;
+    for (i = 0; i < N; i++)
+    {
+        cin >> d >> w;
+        v.push_back(pair<int, int>(d, w));
     }
 
-    for (i=0; i<loop; i++){
-        d = cases[i][0];
-        w = cases[i][1];
-        if (score_pane[d] == 0){
-            score_pane[d] = w;
-        }
-        else{
-            for (j=i;j>0;j--){
-                if (w > score_pane[j]){
-                    temp = score_pane[j];
-                    score_pane[j] = w;
-                    w = temp;
-                }
+    sort(v.begin(), v.end(), cmp);
+    for (vit = v.begin(); vit != v.end(); vit++)
+    {
+        for (i = vit->first; i > 0; i--)
+        {
+            if (vit->second > work[i])
+            {
+                work[i] = vit->second;
+                break;
             }
         }
     }
-    int sum=0;
-    for (i=0;i<1001;i++){
-        sum += score_pane[i];
+    for (i = 0; i < 1001; i++)
+    {
+        sum_v += work[i];
     }
-    return sum;
+    cout << sum_v;
+    return 0;
 }
