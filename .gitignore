@@ -4,6 +4,9 @@
 *.jpg
 *.jpeg
 
+*.exe
+*o
+
 *.txt
 python-SWExpert/input.txt
 coding_test
