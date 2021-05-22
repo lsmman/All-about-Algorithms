@@ -1,10 +1,13 @@
+# 크루스칼 알고리즘 방식 차용
+# 시간 : O(E log V)
+# 공간 : O(EV)
 def solution(n, costs):
     costs.sort(key=lambda x: x[2])
     connected = [set() for _ in range(n)]
     result = 0
-    
+
     def is_connected(x, y):
-        visited = [False] * (n+1)
+        visited = [False] * (n + 1)
         visited[x]
         queue = [x]
         while queue:
@@ -15,7 +18,7 @@ def solution(n, costs):
                     if c == y:
                         return True
                     queue.append(c)
-                    
+
         return False
 
     for x, y, cost in costs:
@@ -24,4 +27,3 @@ def solution(n, costs):
             connected[y].add(x)
             result += cost
     return result
-
