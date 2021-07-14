@@ -1,3 +1,4 @@
+# 통과 못함
 def solution(jobs):
     def get_time_taken(jobs):
         answer = 0
