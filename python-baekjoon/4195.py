@@ -78,6 +78,7 @@ def main():
 def test():
     test1()
     test2()
+    test3()
 
 def test1():
     # given
@@ -112,6 +113,29 @@ def test2():
 
     # then
     print(answers == [2,2,4])
+
+def test3():
+    # given
+    conns = [
+        "a b",
+        "b c",
+        "d e",
+        "e f",
+        "g h",
+        "h i",
+        "a f",
+        "c i",
+    ]
+    network = Friend_network()
+    answers = []
+    # when
+    for conn in conns:
+        result = network.count_friend_network(conn.split())
+        answers.append(result)
+
+    # then
+    print(answers == [2,3,2, 3, 2, 3, 6, 9])
+
 
 # main()
 test()
