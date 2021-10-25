@@ -13,7 +13,7 @@ def solve(n, graph):
             cur = dq.popleft()
             for g in graph[cur]:
                 if visited[g]:
-                    c ontinue
+                    continue
                 dq.append(g)
                 visited[g] = True
                 cnt += 1
