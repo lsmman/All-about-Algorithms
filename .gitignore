@@ -14,3 +14,7 @@ coding_test/*
 
 gist
 gist/*
+
+out/
+.idea/
+*.iml
