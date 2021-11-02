@@ -36,7 +36,7 @@ class Block{
     }
 }
 
-public class Main {
+public class baekjoon_2655 {
     private static final int LIMIT = 10001;
     List<Block> blockList = new ArrayList<>();
 
@@ -105,7 +105,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Main main = new Main();
+        baekjoon_2655 main = new baekjoon_2655();
 //        main.test();
         main.solve();
     }

@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution {
+class programmers_42747 {
     /**
      * @param citations 발표한 논문의 수
      * @return H-index
@@ -57,7 +57,7 @@ class Solution {
         int[] citations = {3, 0, 6, 1, 5};
         int answer = 3;
 
-        int s = Solution.solution(citations);
+        int s = programmers_42747.solution(citations);
         System.out.println(s == answer);
     }
 

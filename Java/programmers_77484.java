@@ -1,4 +1,4 @@
-class Solution {
+class programmers_77484 {
     public int[] solution(int[] lottos, int[] win_nums) {
         int[] ranks = new int[] {6, 6, 5, 4, 3, 2, 1};
         int low_cnt, high_cnt;

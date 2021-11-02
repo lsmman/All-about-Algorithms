@@ -4,7 +4,7 @@
 import java.util.*;
 import java.math.*;
 
-class Solution {
+class programmers_42889 {
 
     public static int solution(int m, int n, int[][] puddles) {
         boolean[][] jam = new boolean[n+1][m+1];
@@ -27,12 +27,12 @@ class Solution {
 
     public static void main(String[] args) {
         int result, answer;
-        result = Solution.solution(4, 3 , new int[][] {});
+        result = programmers_42889.solution(4, 3 , new int[][] {});
         answer = 10;
         System.out.println(result);
         System.out.println(result == answer);
 
-        result = Solution.solution(4, 3 , new int[][] {{2, 2}});
+        result = programmers_42889.solution(4, 3 , new int[][] {{2, 2}});
         answer = 4;
         System.out.println(result);
         System.out.println(result == answer);

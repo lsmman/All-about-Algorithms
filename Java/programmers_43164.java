@@ -39,7 +39,7 @@ class Pair {
     }
 }
 
-class Solution {
+class programmers_43164 {
     private static Map<String, ArrayList<Pair>> dict = new HashMap<String, ArrayList<Pair>>();
     private static String dfs(String cur, int visit_cnt){
         if (visit_cnt == 0){
@@ -100,17 +100,17 @@ class Solution {
         return result.split(" ");
     }
     public static void main(String[] args) {
-//        String[] result = Solution.solution(new String[][] {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}});
+//        String[] result = programmers_43164.solution(new String[][] {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}});
 //        String[] answer = {"ICN", "JFK", "HND", "IAD"};
 //        System.out.println(result.toString());
 //        System.out.println(Arrays.equals(result, answer));
 //
-//        String[] result2 = Solution.solution(new String[][] {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}});
+//        String[] result2 = programmers_43164.solution(new String[][] {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}});
 //        String[] answer2 = {"ICN", "ATL", "ICN", "SFO", "ATL", "SFO"};
 //        Arrays.stream(result2).forEach(System.out::println);
 //        System.out.println(Arrays.equals(result2, answer2));
 
-        String[] result2 = Solution.solution(new String[][] {{"ICN", "A"}, {"ICN", "C"}, {"C", "ICN"}});
+        String[] result2 = programmers_43164.solution(new String[][] {{"ICN", "A"}, {"ICN", "C"}, {"C", "ICN"}});
         String[] answer2 = {"ICN", "C", "ICN", "A"};
         Arrays.stream(result2).forEach(System.out::println);
         System.out.println(Arrays.equals(result2, answer2));

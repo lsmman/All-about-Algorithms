@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Solution_9184 {
+public class baekjoon_9184 {
     private static final int NONACTIVE = 0;
 
     private int[][][] dp;
@@ -13,7 +13,7 @@ public class Solution_9184 {
             return 1;
         }
 
-        if (dp[a][b][c] != Main.NONACTIVE){
+        if (dp[a][b][c] != baekjoon_9184.NONACTIVE){
             return dp[a][b][c];
         }
 
@@ -85,7 +85,7 @@ public class Solution_9184 {
         for (int i = 0; i <= a; i++) {
             for (int j = 0; j <= b; j++) {
                 for (int k = 0; k <= c; k++) {
-                    dp[i][j][k] = Main.NONACTIVE;
+                    dp[i][j][k] = baekjoon_9184.NONACTIVE;
                 }
             }
         }
@@ -120,7 +120,7 @@ public class Solution_9184 {
     }
 
     public static void main(String[] args) {
-        Main main = new Main();
+        baekjoon_9184 main = new baekjoon_9184();
         main.getInput();
         main.solve();
     }

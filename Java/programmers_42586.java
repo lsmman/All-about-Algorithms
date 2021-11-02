@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-class Solution {
+class programmers_42586 {
     public static int[] solution(int[] progresses, int[] speeds) {
         Queue<Integer> q = new LinkedList<>();
         int remain, turn_needed;
@@ -47,7 +47,7 @@ class Solution {
         int[] speeds = {1, 30, 5};
         int[] answer = {2, 1};
 
-        int[] s = Solution.solution(progresses, speeds);
+        int[] s = programmers_42586.solution(progresses, speeds);
         for (int i : s) {
             System.out.println(i);
         }

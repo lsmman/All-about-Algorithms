@@ -4,7 +4,7 @@
 
 import java.util.Arrays;
 
-class Solution {
+class programmers_43236 {
     public static int solution(int distance, int[] rocks, int n) {
         int[] pos = new int[rocks.length+1];
         int i, length;
@@ -46,7 +46,7 @@ class Solution {
         return answer;
     }
     public static void main(String[] args) {
-        int result = Solution.solution(25, new int[] {2, 14, 11, 21, 17}, 2);
+        int result = programmers_43236.solution(25, new int[] {2, 14, 11, 21, 17}, 2);
         int answer = 4;
         System.out.println(result);
         System.out.println(result == answer);

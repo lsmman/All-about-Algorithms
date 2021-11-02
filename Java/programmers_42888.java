@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution {
+class programmers_42888 {
     public String[] solution(String[] record) {
         ArrayList<String> answer = new ArrayList<>();
         String[] answer_str;

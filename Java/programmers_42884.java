@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution {
+class programmers_42884 {
     public static int solution(int[][] routes) {
         int lastTime = -30001;
         int answer = 0;
@@ -19,7 +19,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        int result = Solution.solution(new int[][] {{-20, 15}, {-14, -5}, {-18, -13}, {-5, -3}});
+        int result = programmers_42884.solution(new int[][] {{-20, 15}, {-14, -5}, {-18, -13}, {-5, -3}});
         int answer = 2;
         System.out.println(result);
         System.out.println(result == answer);

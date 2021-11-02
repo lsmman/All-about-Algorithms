@@ -2,7 +2,7 @@
 
 import java.lang.Math;
 
-class Solution {
+class programmers_60057 {
     public int solution(String s) {
         String cur = "";
         String pre = "";

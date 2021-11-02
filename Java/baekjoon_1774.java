@@ -24,7 +24,7 @@ class Node {
     }
 }
 
-public class Main {
+public class baekjoon_1774 {
     private double get_distance(int[] xy1, int[] xy2){
         long distX = (xy1[0] - xy2[0]);
         long distY = (xy1[1] - xy2[1]);
@@ -92,7 +92,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        new Main().test();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Main main = new Main();
+        baekjoon_1774 baekjoon_1774 = new baekjoon_1774();
         String s;
         String[] split;
         int N, M, i;
@@ -120,7 +120,7 @@ public class Main {
             edges[i][1] = Integer.parseInt(split[1]);
         }
 
-        answer = main.MST(N, M, xys, edges);
+        answer = baekjoon_1774.MST(N, M, xys, edges);
         System.out.println(answer);
     }
 

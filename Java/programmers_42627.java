@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution {
+class programmers_42627 {
 // 들어오는 순으로 정렬하고
 // 지금 turn수보다 작업 요청되는 시점이 이전일 경우 heap에 넣어주고
 // 제일 작은 값을 빼준다.
@@ -38,7 +38,7 @@ class Solution {
         int[][] jobs = {{0, 3}, {1, 9}, {2, 6}};
         int answer = 9;
 
-        int s = Solution.solution(jobs);
+        int s = programmers_42627.solution(jobs);
         System.out.println(s == answer);
     }
 

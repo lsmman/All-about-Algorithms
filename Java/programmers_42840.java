@@ -3,13 +3,12 @@
  */
 
 //import java.util.List;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Solution {
-    public static int @NotNull [] solution(int[] answers) {
+public class programmers_42840 {
+    public static int [] solution(int[] answers) {
         int i, num_of_person = 3;
 
         int[][] persons = {
@@ -44,11 +43,11 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] problem1 = {1, 2, 3, 4, 5};
-        int[] answer1 = Solution.solution(problem1);
+        int[] answer1 = programmers_42840.solution(problem1);
         Arrays.stream(answer1).forEach(System.out::println); // {1}
 
         int[] problem2 = {1,3,2,4,2};
-        int[] answer2 = Solution.solution(problem2);
+        int[] answer2 = programmers_42840.solution(problem2);
         Arrays.stream(answer2).forEach(System.out::println); // {1, 2, 3}
     }
 }

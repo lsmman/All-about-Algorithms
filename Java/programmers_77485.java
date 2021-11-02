@@ -1,5 +1,5 @@
 
-class Solution {
+class programmers_77485 {
     private static int INF;
 
     private int get_min_num(int[] query, int[][] MAP){

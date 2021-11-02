@@ -2,7 +2,7 @@
 import java.util.Map;
 import java.util.HashMap;
 
-class Solution {
+class programmers_77486 {
     private int calc_profit(int amount){
         return 100 * amount;
     }

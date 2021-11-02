@@ -1,11 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution {
+public class 모험자길드 {
     private static int[] degrees;
     private static int N;
 
-    private void input() {
+    private static void input() {
         Scanner scanner = new Scanner(System.in);
         String s;
 
@@ -19,7 +19,7 @@ public class Solution {
                 .toArray();
     }
 
-    private int solve(int n, int[] ints) {
+    private static int solve(int n, int[] ints) {
         // X인 모험가가 한 그룹 X명 이상
         // 공포도가 2인 모험가는 반드시 2명이상이 있는 모험가 그룹에 참여
         // 공포도가 가장 높은 모험가가 5라고 하면, 5명을 무조건 포섭 -> 이걸 가장 공포도 높은 순으로 포섭
@@ -40,9 +40,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        solution.input();
-        int result = solution.solve(N, degrees);
+        input();
+        int result = solve(N, degrees);
 
         System.out.println(result);
 
