@@ -1,35 +1,41 @@
 # 보석 쇼핑
 # https://programmers.co.kr/learn/courses/30/lessons/67258?language=python3
 # 34분..
-
+# 보석 쇼핑
+# https://programmers.co.kr/learn/courses/30/lessons/67258?language=python3
+# 
 def solution(gems):
-    answer = [1, len(gems)]
-    nums = []
-    name2idx = {}
-    idx = 0
-    for g in gems:
-        if g not in name2idx:
-            name2idx[g] = idx
-            idx += 1
-        nums.append(name2idx[g])
-    unique = idx
-    leng = len(nums) 
-
-    period_leng = 2 * leng
-    for srt in range(leng - unique):
-        visit = [0] * unique
-        cnt = 0
-        for end in range(srt, min(srt+period_leng-1, leng)):
-            if visit[nums[end]] == 0:
+    gems_length = len(gems)
+    names2count = {g:0 for g in set(gems)}
+    n = len(names2count)
+    cnt = 0
+    answer = (gems_length, 0, gems_length-1)
+    
+    srt = 0
+    end = -1
+    while srt < gems_length:
+        for i in range(end+1, gems_length):            
+            if cnt == n:
+                break
+                
+            if not names2count[gems[i]]:
                 cnt += 1
-            visit[nums[end]] += 1
-            if cnt == unique:
-                period_leng = end-srt+1
-                answer = [srt+1, end+1]
+            names2count[gems[i]] += 1
+            
+            end = i
+        
+        if cnt == n and answer[0] > (end-srt):
+            answer = (end-srt, srt, end)
+            if answer[0]+1 == n:
                 break
         
-    return answer
-
+        names2count[gems[srt]] -= 1
+        if not names2count[gems[srt]]:
+            cnt -= 1
+        srt += 1
+        
+    return [answer[1]+1, answer[2]+1]
+    
 result = solution(["DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"])
 print(result == [3, 7], result)
 result = solution(["AA", "AB", "AC", "AA", "AC"])
