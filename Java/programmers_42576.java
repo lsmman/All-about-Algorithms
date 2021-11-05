@@ -4,7 +4,7 @@
 import java.util.*;
 
 
-class Solution {
+class programmers_42576 {
     public static String solution(String[] p, String[] c) {
         HashMap<String, Integer> hm = new HashMap<>();
         for (String s: p) {
@@ -30,11 +30,11 @@ class Solution {
     public static void main(String[] args) {
         String[] p = {"l", "k", "e"};
         String[] c = {"e", "k"};
-        System.out.println(Solution.solution(p, c).equals("l"));
+        System.out.println(programmers_42576.solution(p, c).equals("l"));
 
         String[] p2 = {"k", "k", "e"};
         String[] c2 = {"e", "k"};
-        System.out.println(Solution.solution(p2, c2).equals("k"));
+        System.out.println(programmers_42576.solution(p2, c2).equals("k"));
     }
 /*
 // 키가 중복되어 충돌이 일어나는 경우 Hashtable이나 HashMap은 감당이 안된다.
