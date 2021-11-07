@@ -124,7 +124,5 @@ class testcase(unittest.TestCase):
         result = appy_new_blackjack(N, M, numbers)
         self.assertEqual(497, result)
 
-        # todo 최고 범위로 테스트 케이스 만들기
-
 
 unittest.main()
