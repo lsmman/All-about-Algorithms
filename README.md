@@ -26,7 +26,7 @@
 * [Minimum Spanning Tree (MST)](/Python-PS-Notes/Graph/minimum_spanning_tree.py)
 * [Topology Sort](/Python-PS-Notes/Graph/topology_sort.py)
 * Floyd–Warshall algorithm
-* Bipartite Matching
+* [Bipartite Matching](/Java/programmers_1806.java)
 
 ### Data Structure
 
