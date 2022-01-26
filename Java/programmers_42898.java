@@ -1,10 +1,7 @@
 // 프로그래머스 동적계획법(Dynamic programming) 등굣길
 // https://programmers.co.kr/learn/courses/30/lessons/42898?language=java
 
-import java.util.*;
-import java.math.*;
-
-class programmers_42889 {
+class programmers_42898 {
 
     public static int solution(int m, int n, int[][] puddles) {
         boolean[][] jam = new boolean[n+1][m+1];
@@ -27,12 +24,12 @@ class programmers_42889 {
 
     public static void main(String[] args) {
         int result, answer;
-        result = programmers_42889.solution(4, 3 , new int[][] {});
+        result = programmers_42898.solution(4, 3 , new int[][] {});
         answer = 10;
         System.out.println(result);
         System.out.println(result == answer);
 
-        result = programmers_42889.solution(4, 3 , new int[][] {{2, 2}});
+        result = programmers_42898.solution(4, 3 , new int[][] {{2, 2}});
         answer = 4;
         System.out.println(result);
         System.out.println(result == answer);
